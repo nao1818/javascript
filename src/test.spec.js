@@ -1,36 +1,24 @@
 import { getType } from "typechecker";
 
 describe("type", () => {
-  it("string", () => {
-    const string = "hello world";
-    const res = getType(string);
-    expect(res).toEqual("string");
-  });
+  // 配列を作る
+  const array = [1, 2, 3, 4];
 
-  it("number", () => {
-    const number = 1;
-    const res = getType(number);
-    expect(res).toEqual("number");
-  });
-
-  it("array", () => {
-    const array = [1, 2, 3];
+  it("配列の型は？", () => {
+    // 配列の型は？
     const res = getType(array);
     expect(res).toEqual("array");
   });
 
-  it("object", () => {
-    const object = {
-      name: "nakanishi",
-      age: 34
-    };
-    const res = getType(object);
-    expect(res).toEqual("object");
+  it("配列の 0 番目には入っているのは？", () => {
+    // 配列の 0 番目には入っているのは？
+    const res = array[0];
+    expect(res).toEqual(1); // 数字
   });
 
-  it("function", () => {
-    const func = () => "hello";
-    const res = getType(func);
-    expect(res).toEqual("function");
+  it("配列の 0 番目の値の型は？", () => {
+    // 配列の 0 番目の型は？
+    const res = getType(array[0]);
+    expect(res).toEqual("number");
   });
 });
